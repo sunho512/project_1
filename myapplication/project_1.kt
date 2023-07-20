@@ -1,10 +1,16 @@
 package com.example.myapplication
 
-fun add(x: Double, y: Double): Double = x + y
-fun subtract(x: Double, y: Double): Double = x - y
-fun multiply(x: Double, y: Double): Double = x * y
-fun divide(x: Double, y: Double): Double = x / y
-fun remainder(x: Double, y: Double): Double = x % y // 나머지 연산 함수 추가
+
+/*
+ * 일단 클래스를 사용하는 목적 그리고 추상화에 대해 간단히 설명을 해보자고
+ * 보고있나?
+ *
+ * 아
+ * 나는 들을수없는상태인거같은데
+ * 지금까지 너말만 못듣고잇엇던듯?
+ * 아래로 내려가자 걍
+ */
+
 
 fun main() {
     println("간단 계산기")
@@ -29,12 +35,14 @@ fun main() {
             val operator = tokens[1]
             val num2 = tokens[2].toDouble()
 
+            val myCalculator = Calculator();
+
             val result = when (operator) {
-                "+" -> add(num1, num2)
-                "-" -> subtract(num1, num2)
-                "*" -> multiply(num1, num2)
-                "/" -> divide(num1, num2)
-                "%" -> remainder(num1, num2) // 나머지 연산 추가
+                "+" -> myCalculator.AddOperation(num1, num2)
+                "-" -> myCalculator.SubstractOperation(num1, num2)
+                "*" -> myCalculator.MultiplyOperation(num1, num2)
+                "/" -> myCalculator.DivideOperation(num1, num2)
+                "%" -> myCalculator.RemainderOperation(num1, num2) // 나머지 연산 추가
                 else -> {
                     println("잘못된 연산자입니다. 다시 시도해 주세요.")
                     continue
