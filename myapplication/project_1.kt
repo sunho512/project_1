@@ -4,6 +4,7 @@ fun add(x: Double, y: Double): Double = x + y
 fun subtract(x: Double, y: Double): Double = x - y
 fun multiply(x: Double, y: Double): Double = x * y
 fun divide(x: Double, y: Double): Double = x / y
+fun remainder(x: Double, y: Double): Double = x % y // 나머지 연산 함수 추가
 
 fun main() {
     println("간단 계산기")
@@ -14,13 +15,13 @@ fun main() {
             val expression = readLine()
 
             if (expression.equals("exit", ignoreCase = true)) {
-                println("Exiting calculator.")
+                println("계산기를 종료합니다.")
                 break
             }
 
             val tokens = expression?.split(" ")
             if (tokens?.size != 3) {
-                println("잘못된 값 입니다. 다시 시도해 주세요.")
+                println("잘못된 값입니다. 다시 시도해 주세요.")
                 continue
             }
 
@@ -33,18 +34,18 @@ fun main() {
                 "-" -> subtract(num1, num2)
                 "*" -> multiply(num1, num2)
                 "/" -> divide(num1, num2)
+                "%" -> remainder(num1, num2) // 나머지 연산 추가
                 else -> {
-                    println("Invalid operator. Please try again.")
+                    println("잘못된 연산자입니다. 다시 시도해 주세요.")
                     continue
                 }
             }
 
-            println("값은: $result")
+            println("결과는: $num1 와 $num2 의 결과 값은 $result")
         } catch (e: NumberFormatException) {
-            println("Invalid input. Please enter numeric values.")
+            println("유효하지 않은 입력입니다. 숫자 값을 입력해주세요.")
         } catch (e: Exception) {
-            println("Error: ${e.message}")
+            println("에러 발생: ${e.message}")
         }
     }
 }
-
