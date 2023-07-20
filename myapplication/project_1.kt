@@ -6,7 +6,7 @@ fun multiply(x: Double, y: Double): Double = x * y
 fun divide(x: Double, y: Double): Double = x / y
 
 fun main() {
-    println("간단한 계산기")
+    println("간단 계산기")
 
     while (true) {
         try {
